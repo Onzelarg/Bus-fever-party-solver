@@ -19,7 +19,7 @@ def printPerf(startPerf, msg = ""):
     return perf_counter()
 
 def getConfig():
-    global cars, startColors, newComers, totalSpace, cpuCount, defaultConfigFile
+    global cars, startColors, newComers, totalSpace, cpuCount, defaultConfigFile, GLOBAL_maxDepth
 
     with open(defaultConfigFile, "r") as file:
         carsJson = json.loads(file.read())
@@ -123,13 +123,12 @@ def dfsSingleCore(maxDepth):
                 chain.pop()
 
     dfs([], maxDepth)
-    if saveResult:
-        chainCounter = 0
-        with open(f"chains_{maxDepth}_{totalSpace}_single.txt", "w") as file:
-            file.write("New run\n")
-            for chain in dfsChain:
-                chainCounter += 1
-                file.write(f"Chain {chainCounter}: {chain}\n")
+    chainCounter = 0
+    with open(f"chains_{maxDepth}_{totalSpace}_single.txt", "w") as file:
+        file.write("New run\n")
+        for chain in dfsChain:
+            chainCounter += 1
+            file.write(f"Chain {chainCounter}: {chain}\n")
     print(f"Total chain count {chainCounter}")
     print(f"Total time: {perf_counter() - startperf:.2f}s")
 
@@ -174,7 +173,6 @@ def exploreChains(args):
 def main():
     getConfig()
     startperf = perf_counter()
-    maxDepth = 12
 
     roots = [cid for cid, car in cars.items() if car["blockedById"] == []]
     print(f"Roots ({len(roots)}): {roots}")
@@ -212,7 +210,6 @@ def main():
     with ctx.Pool(processes = workerCount) as pool, open(f"chains_{GLOBAL_maxDepth}_{totalSpace}.txt", "w") as file:
         file.write("New run\n")
         for result in pool.imap_unordered(exploreChains, tasks, chunksize = 1):
-            if saveResult:
                 for c in result:
                     chainCounter += 1
                     file.write(f"Chain {chainCounter}: {c}\n")
@@ -220,10 +217,6 @@ def main():
 
     print(f"Total chain count {chainCounter}")
     print(f"Total time: {perf_counter() - startperf:.2f}s")
-
-def toggleSave(value):
-    global saveResult
-    saveResult = value
 
 def setDepth(depth):
     global GLOBAL_maxDepth
@@ -249,9 +242,8 @@ parser = argparse.ArgumentParser(
 )
 parser.add_argument("-d", "--depth", help="Sets the depth that the chain is going to be explored. WARNING: raising the depth makes the execution to be exponencially longer!", type=int)
 parser.add_argument("-c", "--config", help="Sets the config file to be loaded, instead of the default cars.json",type=str)
-parser.add_argument("-s", "--single", help="Run the solver as a single process. WARNING: can take a long time depending on the level od depth!", action="store_true")
+parser.add_argument("-s", "--single", help="Run the solver as a single process. WARNING: can take a long time depending on the level of depth!", action="store_true")
 parser.add_argument("-m", "--maxcore", help="Set the maximum amount of cores that can be used for solving.", type=int)
-parser.add_argument("-a", "--save", help="Toggle whether the result should be saved or not.", action="store_false")
 parser.add_argument("-t", "--total", help="Overwrite the total parking spaces", type=int)
 arguments = parser.parse_args()
 
@@ -264,13 +256,10 @@ if arguments.config is not None:
 if arguments.maxcore is not None:
     setMaxCoreCount(arguments.maxcore)
 
-if arguments.save is not None:
-    toggleSave(arguments.save)
-
 if arguments.total is not None:
     setTotalSpaces(arguments.total)
 
-if arguments.single is not None:
+if arguments.single:
     dfsSingleCore(GLOBAL_maxDepth)
 else:
     main()
