@@ -1,0 +1,63 @@
+{
+    "totalSpace" : 5,
+    "cars" : [ 
+        {
+        "1" : {"blockedById": [                                                      ], "color": "Pink",       "capacity": 40, "blockedByCount": 0},
+        "2" : {"blockedById": [1                                                     ], "color": "Blue",       "capacity": 24, "blockedByCount": 1},
+        "3" : {"blockedById": [1, 2                                                  ], "color": "Red",        "capacity": 24, "blockedByCount": 2},
+        "4" : {"blockedById": [1, 2, 3                                               ], "color": "Green",      "capacity": 24, "blockedByCount": 3},
+        "5" : {"blockedById": [6, 7, 8, 9                                            ], "color": "Dark green", "capacity": 24, "blockedByCount": 4},
+        "6" : {"blockedById": [8                                                     ], "color": "Dark green", "capacity": 24, "blockedByCount": 1},
+        "7" : {"blockedById": [9                                                     ], "color": "Dark green", "capacity": 40, "blockedByCount": 1},
+        "8" : {"blockedById": [                                                      ], "color": "Blue",       "capacity": 24, "blockedByCount": 0},
+        "9" : {"blockedById": [                                                      ], "color": "Dark green", "capacity": 16, "blockedByCount": 0},
+        "10": {"blockedById": [1, 11, 12                                             ], "color": "Pink",       "capacity": 16, "blockedByCount": 3},
+        "11": {"blockedById": [1                                                     ], "color": "Pink",       "capacity": 40, "blockedByCount": 1},
+        "12": {"blockedById": [1                                                     ], "color": "Pink",       "capacity": 40, "blockedByCount": 1},
+        "13": {"blockedById": [1, 2, 3                                               ], "color": "Green",      "capacity": 16, "blockedByCount": 3},
+        "14": {"blockedById": [1, 2, 3, 10, 11, 12, 13, 16                           ], "color": "Green",      "capacity": 24, "blockedByCount": 8},
+        "15": {"blockedById": [1, 2, 3, 4, 10, 11, 12, 13, 14, 17                    ], "color": "Orange",     "capacity": 24, "blockedByCount": 10},
+        "16": {"blockedById": [1, 2, 3, 12, 13                                       ], "color": "Orange",     "capacity": 16, "blockedByCount": 5},
+        "17": {"blockedById": [1, 2, 3, 4, 12, 13, 14, 16                            ], "color": "Yellow",     "capacity": 24, "blockedByCount": 8},
+        "18": {"blockedById": [                                                      ], "color": "Yellow",     "capacity": 24, "blockedByCount": 0},
+        "19": {"blockedById": [                                                      ], "color": "Red",        "capacity": 16, "blockedByCount": 0},
+        "20": {"blockedById": [                                                      ], "color": "Cyan",       "capacity": 40, "blockedByCount": 0},
+        "21": {"blockedById": [26, 29, 30, 33, 34, 35, 36                            ], "color": "Yellow",     "capacity": 40, "blockedByCount": 7},
+        "22": {"blockedById": [21, 26, 29, 30, 33, 34, 35, 36                        ], "color": "Red",        "capacity": 16, "blockedByCount": 8},
+        "23": {"blockedById": [29, 30, 34, 35, 36                                    ], "color": "Cyan",       "capacity": 16, "blockedByCount": 5},
+        "24": {"blockedById": [10, 19, 20                                            ], "color": "Purple",     "capacity": 40, "blockedByCount": 3},
+        "25": {"blockedById": [1, 10, 11, 12                                         ], "color": "Purple",     "capacity": 40, "blockedByCount": 4},
+        "26": {"blockedById": [29, 30, 33, 34, 35, 36                                ], "color": "Green",      "capacity": 40, "blockedByCount": 6},
+        "27": {"blockedById": [29, 30, 33, 34, 35, 36                                ], "color": "Orange",     "capacity": 24, "blockedByCount": 6},
+        "28": {"blockedById": [29, 30, 34, 35, 36                                    ], "color": "Yellow",     "capacity": 16, "blockedByCount": 5},
+        "29": {"blockedById": [35, 36                                                ], "color": "Cyan",       "capacity": 24, "blockedByCount": 2},
+        "30": {"blockedById": [36                                                    ], "color": "Purple",     "capacity": 40, "blockedByCount": 1},
+        "31": {"blockedById": [                                                      ], "color": "Blue",       "capacity": 24, "blockedByCount": 0},
+        "32": {"blockedById": [1, 2, 3, 4, 12, 13, 14, 16, 26, 29, 30, 33, 34, 35, 36], "color": "Purple",     "capacity": 16, "blockedByCount": 15},
+        "33": {"blockedById": [34, 35, 36                                            ], "color": "Red",        "capacity": 40, "blockedByCount": 3},
+        "34": {"blockedById": [29, 30, 36                                            ], "color": "Orange",     "capacity": 24, "blockedByCount": 3},
+        "35": {"blockedById": [36                                                    ], "color": "Blue",       "capacity": 24, "blockedByCount": 1},
+        "36": {"blockedById": [                                                      ], "color": "Cyan",       "capacity": 24, "blockedByCount": 0}
+        }
+    ],
+    
+    "startColors" : {
+        "Blue"   : 16,
+        "Yellow" : 24,
+        "Red"    : 48,
+        "Green"  : 52
+    },
+    
+    "newComers" : [
+        {"amount" : 24, "color" : "Blue"},
+        {"amount" : 52, "color" : "Green"},
+        {"amount" : 12, "color" : "Red"},
+        {"amount" : 28, "color" : "Cyan"},
+        {"amount" : 32, "color" : "Pink"},
+        {"amount" : 20, "color" : "Red"},
+        {"amount" : 32, "color" : "Purple"},
+        {"amount" : 32, "color" : "Dark green"},
+        {"amount" : 44, "color" : "Orange"},
+        {"amount" : 32, "color" : "Yellow"}
+    ]
+}
