@@ -63,7 +63,6 @@ python cargame.py -m 4 -t 6      # limit to 4 cores, override parking to 6 space
 Example chain from a 11 depth 4 parking spaces simulation:
 ```
 Chain 148796: [[36, 1, 2, 3, 20, 13, 19, 18, 4, 9, 30], 236, 3]
-
 ```
 This particular chain has picked up 236 passengers and occupying 3 parking spaces. 
 The order of the chain is the same as you would pick from the game.
